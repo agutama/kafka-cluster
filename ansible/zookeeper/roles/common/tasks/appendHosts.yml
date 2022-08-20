@@ -1,0 +1,10 @@
+- name: append kafka nodes ips
+  lineinfile: 
+    state: present
+    insertafter: EOF
+    dest: /etc/hosts
+    line: "{{ item }}"
+  with_items:
+   - 192.168.251.251  kafka1
+   - 192.168.251.252  kafka2
+   - 192.168.251.253  kafka3

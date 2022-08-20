@@ -1,0 +1,4 @@
+---
+
+- name: java installation
+  ansible.builtin.include_tasks: install.yml

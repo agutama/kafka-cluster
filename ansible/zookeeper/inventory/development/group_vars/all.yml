@@ -1,0 +1,42 @@
+---
+
+systemUpgradeRequired: false
+
+javaVersion: 11
+updateJava: false # only when you need to update java version
+
+useSystemFirewall: false
+
+zookeeperGroup: "zookeeper"
+zookeeperUser: "zookeeper"
+zookeeperGroupId: 6000
+zookeeperUserId: 6000
+
+zookeeperInstallDir: "/data/zookeeper"
+zookeeperDataDir: "{{ zookeeperInstallDir }}/zookeeper-data"
+zookeeperLogDir: "{{ zookeeperInstallDir }}/zookeeper-logs"
+
+# jvm settings
+zookeeperXms: "256m"
+zookeeperXmx: "{{ zookeeperXms }}"
+ZookeeperJvmFlags: ""
+
+# jmx settings, updated via clusterJvmConfigs.yml
+zookeeperJmxEnabled: true
+zookeeperJmxPort: 9999
+
+zookeeperVmMaxMapCount: 100000
+zookeeperTickTime: 2000
+zookeeperInitLimit: 5
+zookeeperSyncLimit: 2
+zookeeperMaxClientCnxns: 60
+zookeeperClientPort: 2181
+
+zookeeperPrometheusExporterEnabled: true
+zookeeperPrometheusExporterHttpPort: 7000
+
+zookeeperVersion: 3.8.0
+zookeeperOldVersion: 3.7.1 # only used in removing old versions
+
+# use local tar only
+zookeeperTarLocation: "files/apache-zookeeper-{{ zookeeperVersion }}-bin.tar.gz"
